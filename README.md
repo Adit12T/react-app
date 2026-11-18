@@ -10,7 +10,7 @@ Testing Library**.
 This started in 2018 as my first React exercise, a list of counters on React 16 with class
 components. Version 2 rewrites it with hooks and TypeScript and adds the features below.
 
-**Live demo:** https://adit12t.github.io/react-app/
+**Live demo:** https://adit12t.github.io/demos/react-app/
 
 ## Features
 
