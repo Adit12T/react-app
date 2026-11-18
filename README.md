@@ -1,44 +1,43 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Counter Board
 
-## Available Scripts
+[![CI](https://github.com/Adit12T/react-app/actions/workflows/ci.yml/badge.svg)](https://github.com/Adit12T/react-app/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/Adit12T/react-app/actions/workflows/codeql.yml/badge.svg)](https://github.com/Adit12T/react-app/actions/workflows/codeql.yml)
 
-In the project directory, you can run:
+A small habit and tally tracker: named counters, each with its own step, live totals, undo, and state
+that survives a page reload. Built with **React 19, TypeScript and Vite**, tested with **Vitest and
+Testing Library**.
 
-### `npm start`
+This started in 2018 as my first React exercise, a list of counters on React 16 with class
+components. Version 2 rewrites it with hooks and TypeScript and adds the features below.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Live demo:** https://adit12t.github.io/react-app/
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Features
 
-### `npm test`
+- **Named counters with custom steps:** count coffees by 1 and push-ups by 10.
+- **Increment, decrement, reset one or reset all**, with values kept between −1,000,000 and 1,000,000.
+- **Live totals:** how many counters are active and the sum of all values, announced to screen readers.
+- **Undo delete:** a deleted counter can be put back in its original position.
+- **Saved automatically** in the browser's local storage; malformed or tampered saved data is ignored safely.
+- **Accessible:** every button has a descriptive label, keyboard focus is visible, and the layout works on phones.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How it is built
 
-### `npm run build`
+- All state changes go through one pure reducer (`src/counters.ts`), so every rule is unit-tested
+  without rendering anything.
+- Components are small and typed; the form validates input before it reaches the reducer.
+- No UI library: the styling is about 80 lines of CSS.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Run it
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+```bash
+npm install
+npm run dev        # http://localhost:5173
+npm test           # 9 tests: reducer rules, storage, and full user flows
+npm run build
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## License
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Copyright © 2026 Aditya Tripathi. All rights reserved. The code is published for viewing only; see
+[LICENSE](LICENSE). Security reports: see [SECURITY.md](SECURITY.md).
